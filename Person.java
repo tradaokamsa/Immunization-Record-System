@@ -68,7 +68,7 @@ public class Person {
                     person.afterInject = afterInject;
     
                     System.out.println("Record updated.");
-                    System.out.println("Vaccine record removed successfully. \n");
+                    System.out.println("Vaccine removed successfully. \n");
                 } else {
                     System.out.println("Vaccine record not found.");
                     System.out.println("Try again. \n");
