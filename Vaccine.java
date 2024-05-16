@@ -44,7 +44,7 @@ public class Vaccine {
     }
 
     public boolean removeVaccine(String date, String name, String place){
-        for (int i=0; i<vaccineCount; i++){
+        for (int i=0; i<=vaccineCount; i++){
             Vaccine vaccine = vaccineArray[i];
             if (vaccine != null && vaccine.getQuantity()>0 && vaccine.getName().equals(name) && vaccine.getDate().equals(date) && vaccine.getPlace().equals(place)) {
                 vaccine.storeVaccine(date, name, place, vaccine.getId(), vaccine.getQuantity()-1);
