@@ -56,7 +56,7 @@ public class Person {
 
     public void inject(String name, int age, String injectDate, String injectName, String injectPlace, Boolean afterInject){
         boolean found = false;
-        for (int i=0; i<personCount; i++) {
+        for (int i=0; i<=personCount; i++) {
             Person person = personArray[i];
             if (person != null && person.getName().equals(name) && person.getAge() == age) {
                 found = true;
