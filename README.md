@@ -1,2 +1,2 @@
 # Immunization-Record-System
-Applying OOP to create a system managing immunization record.
+applying OOP to create a system managing immunization record
