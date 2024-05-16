@@ -48,7 +48,6 @@ public class Vaccine {
             Vaccine vaccine = vaccineArray[i];
             if (vaccine != null && vaccine.getQuantity()>0 && vaccine.getName().equals(name) && vaccine.getDate().equals(date) && vaccine.getPlace().equals(place)) {
                 vaccine.storeVaccine(date, name, place, vaccine.getId(), vaccine.getQuantity()-1);
-                this.quantity -= 1;
                 return true;
             }
         }
