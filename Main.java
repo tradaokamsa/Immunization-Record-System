@@ -17,13 +17,16 @@ public class Main {
         Parent parent = new Parent(vaccine, person.getName(), person.getAge());
         parent.updateInfo("Laura", 30);
         parent.updateInfo("Elliot", 32);
-        parent.saveChildData("Laura", 30, "Alex", 1, 23, 1.7);
-        parent.injectChild("Alex", "2024-05-16", "Vaccine A", "Clinic A", true);
+        parent.saveChildData("Laura", 30, "Alex", 19, 90, 1.7);
+        parent.saveChildData("Anthony", 33, "Jake", 13, 43, 1.7);
+        parent.injectChild("Boh", "Laura", "2024-05-16", "Vaccine A", "Clinic A", true);
+        parent.injectChild("Alex", "Laura", "2024-05-20", "Vaccine A", "Clinic A", true);
+        parent.injectChild("Jake", "Anthony", "2024-05-16", "Vaccine A", "Clinic A", true);
 
         Admin admin = new Admin(person, vaccine, parent);
         admin.checkRemain();
-        admin.notInject();
         admin.printUser();
+        admin.notInject();
         admin.printParent();
     }
 }

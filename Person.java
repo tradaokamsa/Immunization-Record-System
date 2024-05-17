@@ -2,7 +2,7 @@ public class Person {
     private static Person[] personArray = new Person[100]; 
     private static int personCount = 0;
 
-    private String name;
+    protected String name;
     private int age;
     private String injectDate;
     private String injectName;

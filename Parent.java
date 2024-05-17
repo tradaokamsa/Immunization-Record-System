@@ -42,34 +42,35 @@ public class Parent extends Person {
         storeParent(parentName, parentAge, childName);
 
         Person person = new Person(vaccineSystem);
+        person.storePerson(parentName, parentAge);
         person.storePerson(childName, childAge);
 
         Child child = new Child(vaccineSystem);
         child.storeChild(childWeight, childHeight, parentName);
 
-        System.out.println("Successfully add child's information. \n");
+        System.out.println("Successfully add information of child and parent. \n");
     }
 
-    public boolean findChild(String childName) {
+    public boolean findChild(String childName, String parentName) {
         for (int i = 0; i <= parentCount; i++) {  
-            if (parentArray[i] != null && parentArray[i].getChild().equals(childName)) {
+            if (parentArray[i] != null && parentArray[i].getName().equals(parentName) && parentArray[i].getChild().equals(childName)) {
                 return true;
             }
         }
         return false;
     }
 
-    public void injectChild(String childName, String injectDate, String injectName, String injectPlace, Boolean afterInject) {
-        if (findChild(childName)) {
+    public void injectChild(String childName, String parentName, String injectDate, String injectName, String injectPlace, Boolean afterInject) {
+        if (findChild(childName, parentName)) {
             Child[] dataChild = childSystem.getAllChilds();
-            for (int i = 0; i < childSystem.getChildCount(); i++) {
+            for (int i = 0; i < dataChild.length; i++) {
                 Child child = dataChild[i];
-                if (child != null && child.getGuardian().equals(this.getName())) {
-                    if (child.findBMI().equals("Overweight")) {
-                        System.out.println("Cannot inject this child.");
-                    } else {
-                        child.inject(childName, child.getAge(), injectDate, injectName, injectPlace, afterInject);
-                    }
+                if (child.findBMI().equals("Overweight")) {
+                    System.out.println("Cannot inject this child. \n");
+                    break;
+                } if (child.findBMI().equals("Normal")) {
+                    child.inject(childName, child.getAge(), injectDate, injectName, injectPlace, afterInject);
+                    break;
                 }
             }
         } else {
