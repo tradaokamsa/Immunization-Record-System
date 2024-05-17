@@ -53,6 +53,9 @@ public class Person {
     public Person[] getAllPersons(){
         return personArray;
     }
+    public int getPersonCount(){
+        return personCount;
+    }
 
     public void inject(String name, int age, String injectDate, String injectName, String injectPlace, Boolean afterInject){
         boolean found = false;

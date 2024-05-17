@@ -1,10 +1,12 @@
 public class Admin {
     private Person personSystem;
     private Vaccine vaccineSystem;
+    private Parent parentSystem;
 
-    public Admin(Person personSystem, Vaccine vaccineSystem){
+    public Admin(Person personSystem, Vaccine vaccineSystem, Parent parentSystem){
         this.personSystem = personSystem;
         this.vaccineSystem = vaccineSystem;
+        this.parentSystem = parentSystem;
     }
 
     public void checkRemain(){
@@ -33,5 +35,28 @@ public class Admin {
                     remaining += 1;
         }
         System.out.println("Number of not injected people: " + remaining + "\n");
+    }
+
+    public void printUser(){
+        Person[] dataPerson = personSystem.getAllPersons();
+        for(int i=0; i<dataPerson.length; i++){
+            Person person = dataPerson[i];
+            if(person != null){
+                System.out.println("User name: " + person.getName());
+                System.out.println("User age: " + person.getAge() + "\n");    
+            }
+        }
+    }
+
+    public void printParent(){
+        Parent[] dataParent = parentSystem.getAllParents();
+        for(int i=0; i<dataParent.length; i++){
+            Parent parent = dataParent[i];
+            if(parent != null){
+                System.out.println("Parent name: " + parent.getName());
+                System.out.println("Parent age: " + parent.getAge());
+                System.out.println("Parents' child: " + parent.getChild() + "\n");    
+            }
+        }
     }
 }
